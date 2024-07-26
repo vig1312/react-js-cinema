@@ -1,5 +1,3 @@
-
-
 export const navData = [
     {
         title: "Home",

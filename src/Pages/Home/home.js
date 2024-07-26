@@ -1,7 +1,11 @@
-import React from 'react';
-import Navigation from "../../Components/HomeLayout/navigation";
-import {Outlet} from "react-router-dom";
-import Footer from "../../Components/HomeLayout/footer";
+// Libraries
+    import React from 'react';
+    import { Outlet } from "react-router-dom";
+
+// Components
+    import Footer from "../../Components/HomeLayout/footer";
+    import Navigation from "../../Components/HomeLayout/navigation";
+
 
 function Home() {
     return (

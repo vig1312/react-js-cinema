@@ -1,6 +1,10 @@
-import React from 'react';
-import {topFilms} from "../../constants/constants";
-import {Link} from "react-router-dom";
+// Libs
+    import React from 'react';
+    import { Link } from "react-router-dom";
+
+// Datas
+    import {topFilms} from "../../constants/constants";
+
 
 function FilmLists() {
     return (

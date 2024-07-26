@@ -1,4 +1,7 @@
-import React from 'react';
+// Libraries
+    import React from 'react';
+
+
 
 function Footer() {
     return (
