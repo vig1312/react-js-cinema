@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    margin: auto;
+}
+.film-info{
+    width: 680px;
+    height: 430px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.align-right{
+    text-align: right;
+    padding-right: 40px;
+}
+.curr-img{
+    width: 330px;
+    height: 100%;
+}

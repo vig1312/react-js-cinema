@@ -1,0 +1,10 @@
+.header{
+    width: 300px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+.active{
+    color: red;
+}
