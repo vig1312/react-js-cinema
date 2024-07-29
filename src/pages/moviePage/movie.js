@@ -1,7 +1,6 @@
-import React from "react";
-
+import React from 'react';
 import '../../assets/style/movies.css'
-import DraftMovie from "../../components/MovieLayout/Movie";
+import DraftMovie from '../../components/MovieLayout/Movie';
 
 const MoviesComp = () => {
 

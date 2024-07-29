@@ -1,8 +1,7 @@
-import React from "react";
-
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 import '../../assets/style/home.css'
-import { Outlet } from "react-router-dom";
-import { Navigation } from "../../components/HomeLayout/Navigation.js";
+import { Navigation } from '../../components/HomeLayout/Navigation.js';
 
 const HomeComponent = () => {
 

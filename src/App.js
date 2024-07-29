@@ -1,10 +1,9 @@
 import './App.css';
-import { Route, NavLink, Routes, BrowserRouter, Outlet } from "react-router-dom";
-
+import { Route, Routes } from 'react-router-dom';
 import './assets/style/home.css'
+import LoginPage from './pages/loginPage';
 import MoviesComp from './pages/moviePage/movie';
 import CurrFilm from './pages/moviePage/CurrFilm';
-import LoginPage from './pages/loginPage';
 import HomeComponent from './pages/homePage/home';
 
 function App() {
