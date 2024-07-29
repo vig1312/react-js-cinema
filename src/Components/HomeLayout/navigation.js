@@ -1,8 +1,5 @@
-// Libraries
-    import { NavLink } from 'react-router-dom';
-
-// Data
-    import { navData } from '../../constants/constants';
+import { NavLink } from 'react-router-dom';
+import { navData } from '../../Data/constants';
 
 
 function Navigation() {
@@ -10,14 +7,14 @@ function Navigation() {
     return (
         <nav>
             <ul>
-                {navData.map((item, index) => (
+                {navData.map(({path,title}, index) => (
 
                     <NavLink
-                        className={"nav-links"}
+                        className="nav-links"
                         key={index}
-                        to={item.path}
+                        to={path}
                     >
-                        {item.title}
+                        {title}
 
                     </NavLink>
 

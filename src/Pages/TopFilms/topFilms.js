@@ -1,8 +1,5 @@
-// Libraries
-    import React from 'react';
-
-// Components
-    import FilmLists from '../../Components/topFilmsLayout/filmLists';
+import React from 'react';
+import FilmLists from "../../Components/topFilmsLayout/filmLists";
 
 
 function TopFilms() {

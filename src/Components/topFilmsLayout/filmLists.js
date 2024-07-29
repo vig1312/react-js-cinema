@@ -1,9 +1,6 @@
-// Libs
-    import React from 'react';
-    import { Link } from 'react-router-dom';
-
-// Datas
-    import {topFilms} from '../../constants/constants';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { topFilms } from '../../Data/constants';
 
 
 function FilmLists() {
@@ -14,16 +11,15 @@ function FilmLists() {
             <h1 className={"top-heading"}>Top Films</h1>
             <div className={"top-films-container"}>
 
-                {topFilms.map((film, index) => (
+                {topFilms.map(({id, poster, title}, index) => (
 
                     <Link
                         key={index}
-                        className={"films-boxes"}
-                        to={`/films/${film.id}`}
+                        className="films-boxes"
+                        to={`/films/${id}`}
                     >
-                        <img src={film.poster} width={200} height={300}/>
-                        {film.title}
-
+                        <img src={poster} width={200} height={300}/>
+                        {title}
                     </Link>
 
                 )

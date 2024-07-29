@@ -1,13 +1,8 @@
-// Libraries
-    import { Routes , Route } from 'react-router-dom';
-
-// Pages
-    import Home from './Pages/Home/home';
-    import TopFilms from './Pages/TopFilms/topFilms';
-    import RestFilms from './Pages/RestFilms/restFilms';
-
-// Assets
-    import './App.css';
+import { Routes , Route } from 'react-router-dom';
+import './App.css';
+import Home from './Pages/Home/home';
+import TopFilms from './Pages/TopFilms/topFilms';
+import RestFilms from './Pages/RestFilms/restFilms';
 
 
 function App() {
