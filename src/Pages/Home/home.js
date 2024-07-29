@@ -1,10 +1,10 @@
 // Libraries
     import React from 'react';
-    import { Outlet } from "react-router-dom";
+    import { Outlet } from 'react-router-dom';
 
 // Components
-    import Footer from "../../Components/HomeLayout/footer";
-    import Navigation from "../../Components/HomeLayout/navigation";
+    import Footer from '../../Components/HomeLayout/footer';
+    import Navigation from '../../Components/HomeLayout/navigation';
 
 
 function Home() {
