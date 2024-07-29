@@ -6,12 +6,20 @@
 
 
 function Navigation() {
-    console.log(navData);
+
     return (
         <nav>
             <ul>
                 {navData.map((item, index) => (
-                    <NavLink className={"nav-links"} key={index} to={item.path}>{item.title}</NavLink>
+
+                    <NavLink
+                        className={"nav-links"}
+                        key={index}
+                        to={item.path}
+                    >
+                        {item.title}
+
+                    </NavLink>
 
                 ))}
             </ul>

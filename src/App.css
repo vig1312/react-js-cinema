@@ -40,12 +40,13 @@ nav > ul > .nav-links.active {
 }
 
 footer {
-    width: auto;
+    width: 100%;
     background-color: cadetblue;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8vh;
+    padding: 7vh 0;
+
 }
 
 .films-boxes {
@@ -68,4 +69,13 @@ footer {
     flex-wrap: wrap;
     text-align: center;
     gap: 20px;
+}
+
+.top-films-container > :hover {
+    scale: 1.1;
+    transition: .5s;
+}
+
+.top-heading {
+    font-size: 50px;
 }

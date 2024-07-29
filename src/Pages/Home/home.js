@@ -8,12 +8,15 @@
 
 
 function Home() {
+
     return (
+
         <div>
             <Navigation />
             <Outlet />
             <Footer />
         </div>
+
     );
 }
 
