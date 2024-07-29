@@ -84,21 +84,3 @@ export const datas = [
 
 
 
-// export const tableData = [
-//     {
-//         title: "title",
-//     },
-//     {
-//         year: "year"
-//     },
-//     {
-//         genre: "genre"
-//     },
-//     {
-//         country: "country"
-//     },
-//     {
-//         production: "production"
-//     },
-
-// ]

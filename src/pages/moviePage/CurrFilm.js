@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import {datas} from "../../data/data";
 
+import {datas} from "../../data/data";
 
 const CurrFilm = () => {
         const {id} = useParams();
@@ -11,7 +11,7 @@ const CurrFilm = () => {
             
                 {currFilmKeys.map((item,index) => {
 
-                    if(item === "trailer" || item === "id" || item === "cover") return null
+                    if (item === "trailer" || item === "id" || item === "cover") return null
                    
                     return (
                         <tr key={index}>
@@ -21,6 +21,7 @@ const CurrFilm = () => {
                     )
                 })}
             </table>
+
         return (
             <>
                 <div className="film-info">
@@ -31,29 +32,5 @@ const CurrFilm = () => {
             </>
         )
     }
-    export default CurrFilm;
-    
-//     <tr>
-//     <th className="align-right">name :</th>
-//     <td >{currentfillm.title}</td>
-// </tr>
-// <tr>
-//     <th className="align-right">genre :</th>
-//     <td>{currentfillm.genre}</td>
-// </tr>
-// <tr>
-//     <th className="align-right">country :</th>
-//     <td>{currentfillm.country}</td>
-// </tr>
-// <tr>
-//     <th className="align-right">director :</th>
-//     <td>{currentfillm.director}</td>
-// </tr>
-// <tr>
-//     <th className="align-right">year :</th>
-//     <td>{currentfillm.year}</td>
-// </tr>
-// <tr>
-//     <th className="align-right">rating :</th>
-//     <td>{currentfillm.rating}</td>
-// </tr>
+export default CurrFilm;
+
