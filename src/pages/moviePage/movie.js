@@ -1,14 +1,9 @@
 import React from 'react';
-import '../../assets/style/movies.css'
+
 import DraftMovie from '../../components/MovieLayout/Movie';
+import '../../assets/style/movies.css'
 
-const MoviesComp = () => {
-
-    return (
-      <>
-        <DraftMovie/>
-      </>
-    )
-}
+const MoviesComp = () => <DraftMovie/>
+  
 export default MoviesComp;
 

@@ -7,7 +7,6 @@ const CurrFilm = () => {
         const currFilmKeys = Object.keys(currentfillm)
         const table = 
             <table className="table">
-            
                 {currFilmKeys.map((item,index) => {
 
                     if (item === "trailer" || item === "id" || item === "cover") return null
