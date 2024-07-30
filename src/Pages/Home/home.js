@@ -1,18 +1,18 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+
 import Footer from '../../Components/HomeLayout/footer';
-import Navigation from '../../Components/HomeLayout/navigation';
+import Navigation from '../../Components/HomeLayout/navigationTool';
 
 
-function Home() {
+const Home = () => (
 
-    return (
-        <div>
-            <Navigation />
-            <Outlet />
-            <Footer />
-        </div>
-    );
-}
+    <>
+        <Navigation />
+        <Outlet />
+        <Footer />
+    </>
+
+)
 
 export default Home;

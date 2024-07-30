@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+
 import { navData } from '../../Data/constants';
 
 
@@ -8,16 +9,13 @@ function Navigation() {
         <nav>
             <ul>
                 {navData.map(({path,title}, index) => (
-
                     <NavLink
-                        className="nav-links"
-                        key={index}
                         to={path}
+                        key={index}
+                        className="nav-links"
                     >
                         {title}
-
                     </NavLink>
-
                 ))}
             </ul>
         </nav>
