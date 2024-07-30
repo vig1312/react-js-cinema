@@ -6,13 +6,11 @@ import Navigation from '../../Components/HomeLayout/navigationTool';
 
 
 const Home = () => (
-
-    <>
-        <Navigation />
-        <Outlet />
-        <Footer />
-    </>
-
+	<>
+		<Navigation />
+		<Outlet />
+		<Footer />
+	</>
 )
 
 export default Home;

@@ -4,21 +4,20 @@ import { navData } from '../../Data/constants';
 
 
 function Navigation() {
-
-    return (
-        <nav>
-            <ul>
-                {navData.map(({path,title}, index) => (
-                    <NavLink
-                        to={path}
-                        key={index}
-                        className="nav-links"
-                    >
-                        {title}
-                    </NavLink>
-                ))}
-            </ul>
-        </nav>
+  return (
+      <nav>
+        <ul>
+          {navData.map(({ path, title }, index) => (
+            <NavLink
+              to={path}
+              key={index}
+              className="nav-links"
+            >
+              {title}
+            </NavLink>
+          ))}
+        </ul>
+      </nav>
     )
 }
 
