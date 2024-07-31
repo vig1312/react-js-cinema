@@ -6,6 +6,7 @@ import LoginPage from './pages/loginPage';
 import MoviesComp from './pages/moviePage/movie';
 import CurrFilm from './pages/moviePage/CurrFilm';
 import HomeComponent from './pages/homePage/home';
+
 import './App.css';
 
 

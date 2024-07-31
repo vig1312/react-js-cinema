@@ -5,12 +5,12 @@ const LoginPage = () => {
     const navigate = useNavigate();
     const goBack = () => navigate(-1)
     
-    return (
-        <>
-            <h1>login page</h1>
-            <button onClick={goBack}>Back</button> 
-        </>
-    )
+  return (
+    <>
+      <h1>login page</h1>
+      <button onClick={goBack}>Back</button> 
+    </>
+  )
 }
 
 export default LoginPage;

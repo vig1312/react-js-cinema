@@ -4,17 +4,15 @@ import { datas } from '../../data/constants';
 import '../../assets/style/movies.css';
 
 const DraftMovie = () => {
-    const films = datas.map(({id, title}) => 
-      <div>
-        <Link to={`/movies/${id}`} key={id}>{title}</Link>
-      </div>
-    )
-   
-    return (
-      <div className="container">
-        {films}
-      </div>
-    )
+  const films = datas.map(({ id, title }) => 
+    <Link to={`/movies/${id}`} key={id}>{title}</Link>
+  )
+  
+  return (
+    <div className="container">
+      {films}
+    </div>
+  )
 }
 export default DraftMovie;
 
