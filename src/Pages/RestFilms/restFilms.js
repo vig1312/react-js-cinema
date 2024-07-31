@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 function RestFilms() {
     return (
         <section>

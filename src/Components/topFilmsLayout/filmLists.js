@@ -11,8 +11,8 @@ function FilmLists() {
           <div className="top-films-container">
             {topFilms.map(({ id, poster, title }, index) => (
               <Link
-                key={index}
                 to={`/films/${id}`}
+                key={index}
                 className="films-boxes"
               >
                 <img src={poster} width={200} height={300}/>
