@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { topFilms } from '../../Data/constants';
+import { datas } from '../../Data/constants';
 
 
 function FilmLists() {
@@ -9,13 +9,13 @@ function FilmLists() {
         <section>
           <h1 className="top-heading">Top Films</h1>
           <div className="top-films-container">
-            {topFilms.map(({ id, poster, title }, index) => (
+            {datas.map(({ id, cover, title }, index) => (
               <Link
-                to={`/films/${id}`}
+                to={`/movies/${id}`}
                 key={index}
                 className="films-boxes"
               >
-                <img src={poster} width={200} height={300}/>
+                <img src={cover} width={200} height={300}/>
                 {title}
               </Link>
               ))}
