@@ -6,7 +6,6 @@ const CurrFilm = () => {
   const { id } = useParams();
   const currentfillm = datas.find((item) => item.id === Number(id));
   const currentFilmKeys = Object.entries(currentfillm)
-  console.log(currentFilmKeys);
   const table = 
     <table className="table">
       {currentFilmKeys.slice(3).map((item, index) => {
@@ -30,12 +29,3 @@ const CurrFilm = () => {
   )
 }
 export default CurrFilm;
-
-//             if (item === "trailer" || item === "id" || item === "cover") return null
-            
-//             return (
-//                 <tr key={index}>
-//                     <th className="align-right">{item} :</th>
-//                     <td>{currentfillm[item]}</td>
-//                 </tr>
-//             )
