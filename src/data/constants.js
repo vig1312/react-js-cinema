@@ -97,10 +97,16 @@ export const navData = [
         path: "/login"
     },
     {
+        title: "Logup",
+        path: "/logup"
+    },
+    {
         title: "My Profile",
         path: "/profile"
     }
 ]
+
+
 
 
 

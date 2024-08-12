@@ -1,3 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const profileSlice = createSlice()
+const initialState = {}
+
+const profileSlice = createSlice({
+  name: "profile",
+  initialState,
+  reducers: {}
+})
