@@ -105,8 +105,3 @@ export const navData = [
         path: "/profile"
     }
 ]
-
-
-
-
-
