@@ -5,8 +5,8 @@ import { datas } from '../../Data/constants';
 const CurrFilm = () => {
   const { id } = useParams();
   const currentfillm = datas.find((item) => item.id === Number(id));
-  const currentFilmKeys = Object.entries(currentfillm)
-  const table = 
+  const currentFilmKeys = Object.entries(currentfillm);
+  const table = (
     <table className="table">
       {currentFilmKeys.slice(3).map((item, index) => {
         return (
@@ -14,9 +14,10 @@ const CurrFilm = () => {
             <th className="align-right">{item[0]} :</th>
             <td>{item[1]}</td>
           </tr>
-        )
+        );
       })}
     </table>
+  );
 
   return (
     <section>
@@ -24,8 +25,8 @@ const CurrFilm = () => {
         <img className="curr-img" src={currentfillm.cover} />
         {table}
       </div>
-      <iframe width="560" height="315" src={currentfillm.trailer} ></iframe>
+      <iframe width="560" height="315" src={currentfillm.trailer}></iframe>
     </section>
-  )
-}
+  );
+};
 export default CurrFilm;

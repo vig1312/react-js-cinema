@@ -10,7 +10,7 @@ const Logup = () => {
         <LogupForm />
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default Logup;
