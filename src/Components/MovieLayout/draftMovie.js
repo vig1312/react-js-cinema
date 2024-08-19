@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { datas } from '../../data/constants';
+import { datas } from '../../Data/constants';
 import '../../Assets/style/movies.css';
 
 const DraftMovie = () => {

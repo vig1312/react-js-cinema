@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-import { datas } from '../../data/constants';
+import { datas } from '../../Data/constants';
 
 const CurrFilm = () => {
   const { id } = useParams();
