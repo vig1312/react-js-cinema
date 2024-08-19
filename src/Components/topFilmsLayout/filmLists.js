@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { datas } from '../../Data/constants';
+import { datas } from '../../data/constants';
 
 
 function FilmLists() {

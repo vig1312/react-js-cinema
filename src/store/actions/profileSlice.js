@@ -1,54 +1,31 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-
 const profileSlice = createSlice({
 		name: "profile",
 		initialState: {
-			username: "",
-			password: ""		
+			loggedUser : {
+				username: "",
+				password: "",
+				email: "",
+				fullName: ""
+			}		
 		},
 	reducers: {
-		currentData: (state, action) => {
-			state.username = action.name;
+		currentData(state, action) {
+			return {
+				loggedUser: {
+					username: action.payload.username,
+					password: action.payload.password,
+					email: action.payload.email,
+					fullName: action.payload.fullName
+				}
+			}
 		}
 	}
 })
 
-export const {actions, reducers} = profileSlice
+export const { currentData } = profileSlice.actions;
+export default profileSlice.reducer
 
 
-//   export const { addTodo, removeTodo, toggleCompleteTodo, consoleAction } = todoSlice.actions 
-   
-//   export default todoSlice.reducer
-// export const todoSlice = createSlice({ 
-//     name: "todos", 
-//     initialState: { 
-//       todos :[]  
-//     }, 
-//     reducers: { 
-//       addTodo(state,action) { 
-//           return { 
-//             todos: [ 
-//               ...state.todos, 
-//               { 
-//                 id: Math.random(), 
-//                 text: action.payload.text 
-//               } 
-//             ] 
-//           } 
-//       }, 
-//       removeTodo(state,action) { 
-//           return { 
-//             ...state, 
-//             todos: state.todos.filter(item => item.id !== action.payload.id) 
-//           } 
-//       }, 
-//       toggleCompleteTodo(state,action) { 
-//         console.log(action,state) 
-//       }, 
-//       consoleAction(action,state) { 
-//         console.table(state) 
-//       } 
-//     } 
-//   }) 
-   
+

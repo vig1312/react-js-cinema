@@ -1,7 +1,8 @@
 import { Navigate } from 'react-router-dom';
 
+export const auth = true;
 const Checking = ({children}) => {
-    const auth = true;
+   
 
     if (!auth) {
         return <Navigate to='/login'/>

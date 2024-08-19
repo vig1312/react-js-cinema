@@ -1,22 +1,22 @@
 import { useParams } from 'react-router-dom';
 
-import { datas } from '../../Data/constants';
+import { datas } from '../../data/constants';
 
 const CurrFilm = () => {
   const { id } = useParams();
   const currentfillm = datas.find((item) => item.id === Number(id));
   const currentFilmKeys = Object.entries(currentfillm)
   const table = 
-    <table className="table">
-      {currentFilmKeys.slice(3).map((item, index) => {
-        return (
-          <tr key={index}>
-            <th className="align-right">{item[0]} :</th>
-            <td>{item[1]}</td>
-          </tr>
-        )
-      })}
-    </table>
+  <table className="table">
+    {currentFilmKeys.slice(3).map((item, index) => {
+      return (
+        <tr key={index}>
+          <th className="align-right">{item[0]} :</th>
+          <td>{item[1]}</td>
+        </tr>
+      )
+    })}
+  </table>
 
   return (
     <section>

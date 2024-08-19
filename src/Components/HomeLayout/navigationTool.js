@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import { navData } from '../../Data/constants';
+import { navData } from '../../data/constants';
 
 
 function Navigation() {
