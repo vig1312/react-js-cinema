@@ -104,3 +104,18 @@ export const datas = [
         "production": "Paramount Pictures",
     }
 ]
+
+export const tableData = [
+    {
+        title: "full Name",
+        key: "fullName"
+    },
+    {
+        title: "username",
+        key: "username"
+    },
+    {
+        title: "email",
+        key: "email"
+    },
+]
