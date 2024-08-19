@@ -7,7 +7,7 @@ import Logup from './Pages/Logup/logup';
 import LoginPage from './Pages/Login/loginPage';
 import TopFilms from './Pages/TopFilms/topFilms';
 import MoviesComp from './Pages/moviePage/movie';
-import CurrFilm from './Pages/moviePage/currFilm';
+import CurrFilm from './Pages/moviePage/CurrFilm';
 
 import '../src/Assets/style/App.css';
 
