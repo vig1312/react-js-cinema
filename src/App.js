@@ -17,11 +17,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}>
           <Route index element={<TopFilms />} />
+          <Route path="logup" element={<Logup />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/movies" element={<MoviesComp />} />
-          <Route path="/loginpage" element={<Navigate to="/login" />} />
-          <Route path="logup" element={<Logup />} />
           <Route path="/movies/:id" element={<CurrFilm />} />
+          <Route path="/loginpage" element={<Navigate to="/login" />} />
           <Route
             path="/profile"
             element={

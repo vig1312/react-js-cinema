@@ -23,10 +23,10 @@ const LogupForm = () => {
         setUsers([
           ...users,
           {
+            email,
             username,
             password,
             fullName,
-            email,
           },
         ]);
         localStorage.setItem('registeredUsers', JSON.stringify(users));
