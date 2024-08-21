@@ -1,16 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialState = {
+	loggedUser : {
+		username: "",
+		password: "",
+		email: "",
+		fullName: ""
+	}		
+}
+
 const profileSlice = createSlice({
 		name: "profile",
-		initialState: {
-			loggedUser : {
-				username: "",
-				password: "",
-				email: "",
-				fullName: ""
-			}		
-		},
-	reducers: {
+		initialState,
+		reducers: {
 		currentData(state, action) {
 			return {
 				loggedUser: {
@@ -20,11 +22,14 @@ const profileSlice = createSlice({
 					fullName: action.payload.fullName
 				}
 			}
+		},
+		resetCurrentData(state,action) {
+			return initialState
 		}
 	}
 })
 
-export const { currentData } = profileSlice.actions;
+export const { currentData, resetCurrentData } = profileSlice.actions;
 export default profileSlice.reducer
 
 

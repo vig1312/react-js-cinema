@@ -1,9 +1,10 @@
+import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 const Checking = ({ children }) => {
-  const auth = false;
+  const auth = useSelector((state) => state.auth.auth);
 
-  if (!auth) {
+  if (!auth.isAuth) {
     return <Navigate to="/login" />;
   }
 

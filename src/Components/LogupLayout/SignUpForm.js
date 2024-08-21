@@ -1,6 +1,10 @@
 import React, { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const LogupForm = () => {
+const usernameRegexp = /^[0-9A-Za-z]{6,16}$/;
+const passwordRegexp = /^[A-Za-z]\w{5,14}$/;
+
+const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -8,13 +12,11 @@ const LogupForm = () => {
   const [users, setUsers] = useState(
     localStorage.registeredUsers ? JSON.parse(localStorage.getItem('registeredUsers')) : []
   );
+  const navigate = useNavigate()
 
   const errMessageRef = useRef(null);
 
   localStorage.setItem('registeredUsers', JSON.stringify(users));
-
-  const usernameRegexp = /^[0-9A-Za-z]{6,16}$/;
-  const passwordRegexp = /^[A-Za-z]\w{5,14}$/;
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -33,7 +35,7 @@ const LogupForm = () => {
         errMessageRef.current.innerText = 'Regisered Succesfuly';
 
         setTimeout(() => {
-          window.location.href = '/';
+          navigate("/login")
         }, 1500);
       } else {
         throw new Error('incorrect Registration');
@@ -80,4 +82,4 @@ const LogupForm = () => {
   );
 };
 
-export default LogupForm;
+export default SignUpForm;

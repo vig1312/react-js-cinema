@@ -1,54 +1,50 @@
 import React, { useRef } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { changeAuth } from '../../store/actions/authSlice';
 
-localStorage.setItem("registeredUsers",JSON.stringify([
-  {
-    username: "hov123",
-    password: "hovo456",
-    email: "hovo.vardanyan@gmail.com",
-    fullName: "hovo vardanyan"
-  },
-  {
-    username: "vigen123",
-    password: "vigen456",
-    email: "vigen.vardanyan@gmail.com",
-    fullName: "vigen vardanyan"
-
-    
-  }
-]))
-
-const users = JSON.parse(localStorage.getItem("registeredUsers"));
+const users = JSON.parse(localStorage.getItem('registeredUsers'));
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const goBack = () => navigate(-1)
   const userName = useRef();
   const password = useRef();
+  const messageRef = useRef();
 
-function loginHandle() {
-  try {
-    const currentUser = users.find((el) => el.username === userName.current.value)
-    if(currentUser) {
-      localStorage.setItem("loggedUser", JSON.stringify(currentUser));
-      window.location.href = '/profile'
-    } else {
-      throw Error("incorrect password or username")
+  const dispatch = useDispatch();
+
+  function loginHandle(e) {
+    e.preventDefault();
+    try {
+      const currentUser = users.find((el) => el.username === userName.current.value);
+
+      if (currentUser) {
+        localStorage.setItem('loggedUser', JSON.stringify(currentUser));
+        dispatch(changeAuth({ auth: true }));
+        messageRef.current.innerText = 'logged in succesfully';
+
+        setTimeout(() => {
+          navigate('/profile');
+        }, 1000);
+      } else {
+        throw Error('incorrect password or username');
+      }
+    } catch (error) {
+      messageRef.current.innerText = error;
     }
-          
-  } catch (error) {
-    alert(error)
   }
-}
 
   return (
     <section>
-      <h1>login page</h1>
-      <input type='text' ref={userName} />
-      <input type='text' ref={password} />
-      <button onClick={loginHandle}>Log in</button> 
-
-      <button onClick={goBack}>Back</button> 
+      <div className="auth-form-fields-container">
+        <h1>login page</h1>
+        <form onSubmit={loginHandle}>
+          <input type="text" ref={userName} placeholder="username" />
+          <input type="password" ref={password} placeholder="password" />
+          <button className="submit-button">Log in </button>
+          <h3 ref={messageRef}></h3>
+        </form>
+      </div>
     </section>
   );
 };

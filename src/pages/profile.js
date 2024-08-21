@@ -1,34 +1,58 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { tableData } from '../Data/constants';
-
+import { currentData, resetCurrentData } from '../store/actions/profileSlice';
+import { changeAuth } from '../store/actions/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
-  // const fullName = useSelector((state) =>  state.profile.loggedUser.fullName)
-  // const email = useSelector((state) =>  state.profile.loggedUser.email)
-  // const username = useSelector((state) =>  state.profile.loggedUser.username)
-	const userInfo = useSelector(state => state.profile.loggedUser)
+  const userInfo = useSelector((state) => state.profile.loggedUser);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  return <section>
-		<h1>personal info</h1>
-		<table>
-			
-			{
-				tableData.map(({title, key}) => (
-					<>
-						<tr>
-						<th>{title}</th>
-						</tr>
-					<tr>
-						<td>{userInfo[key]}</td>
-					</tr>
-					</>
-				))
-			}
-		</table>
+  useEffect(() => {
+    if (localStorage.loggedUser) {
+      const loggedUserData = JSON.parse(localStorage.getItem('loggedUser'));
+      const { username, fullName, password, email } = loggedUserData;
+      dispatch(
+        currentData({
+          email,
+          fullName,
+          password,
+          username,
+        })
+      );
+    }
+  }, []);
 
-	</section>
-		
-} 
- 
+  function handleLogOut() {
+    localStorage.removeItem('loggedUser');
+    dispatch(changeAuth({ auth: false }));
+    dispatch(resetCurrentData({}));
+    alert('logged Out Succesfully');
+    navigate('/');
+  }
+
+  return (
+    <section>
+      <h1>personal info</h1>
+      <table>
+        {tableData.map(({ title, key }) => (
+          <>
+            <tr>
+              <th>{title}</th>
+            </tr>
+            <tr>
+              <td>{userInfo[key]}</td>
+            </tr>
+          </>
+        ))}
+      </table>
+      <button onClick={handleLogOut} className="submit-button">
+        Log Out
+      </button>
+    </section>
+  );
+};
+
 export default Profile;

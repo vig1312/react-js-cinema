@@ -1,16 +1,15 @@
 import React from 'react';
+import SignUpForm from '../../Components/LogupLayout/SignUpForm';
 
-import LogupForm from '../../Components/LogupLayout/logupForm';
-
-const Logup = () => {
+const SignUp = () => {
   return (
     <section>
       <div className="auth-form-fields-container">
         <h1>Log Up For More Tools</h1>
-        <LogupForm />
+        <SignUpForm />
       </div>
     </section>
   );
 };
 
-export default Logup;
+export default SignUp;
