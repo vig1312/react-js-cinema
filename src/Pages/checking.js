@@ -1,11 +1,11 @@
 import { Navigate } from 'react-router-dom';
 
 const Checking = ({children}) => {
-  const auth = true;
+  // const auth = true;
 
-  if (!auth) {
-    return <Navigate to='/login'/>
-  }
+  // if (!auth) {
+  //   return <Navigate to='/login'/>
+  // }
 
   return children;
 }

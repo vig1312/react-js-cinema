@@ -15,7 +15,7 @@ import '../src/Assets/style/App.css';
 function App() {
   const dispatch = useDispatch()
 
-  if(localStorage.loggedUser) {
+  if (localStorage.loggedUser) {
     const loggedUserData = JSON.parse(localStorage.getItem("loggedUser"))
     const {username, fullName, password, email} = loggedUserData
     dispatch(currentData({

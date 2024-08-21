@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 
-import { datas } from '../../Data/constants';
+import { data } from '../../Data/constants';
 import '../../Assets/style/movies.css';
 
 const DraftMovie = () => {
-  const films = datas.map(({ id, title }) => 
+  const films = data.map(({ id, title }) => 
     <Link to={`/movies/${id}`} key={id}>{title}</Link>
   )
   

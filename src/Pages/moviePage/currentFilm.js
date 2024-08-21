@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
 
-import { datas } from '../../Data/constants';
+import { data } from '../../Data/constants';
 
 const CurrFilm = () => {
   const { id } = useParams();
-  const currentfillm = datas.find((item) => item.id === Number(id));
+  const currentfillm = data.find((item) => item.id === Number(id));
   const currentFilmKeys = Object.entries(currentfillm)
   const table = 
   <table className="table">
