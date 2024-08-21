@@ -12,7 +12,7 @@ const Home = () => {
   if (auth.isAuth) {
     return (
       <>
-        <NavigationLogged />
+        <NavigationLogged />  
         <Outlet />
         <Footer />
       </>
