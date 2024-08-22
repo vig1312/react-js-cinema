@@ -24,8 +24,8 @@ const CurrFilm = () => {
         <img className="curr-img" src={currentfillm.cover} />
         {table}
       </div>
-      <iframe width="560" height="315" src={currentfillm.trailer} ></iframe>
+      <iframe width="560" height="315" src={currentfillm.trailer}></iframe>
     </section>
-  )
-}
+  );
+};
 export default CurrFilm;

@@ -2,13 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   booking: {
-    reservedTickets: {}
-  }
-}
+    reservedTickets: {},
+  },
+};
 
 const ticketSlice = createSlice({
-  name: "tickets",
+  name: 'tickets',
   initialState,
-  reducers: {}
-})
-
+  reducers: {},
+});
