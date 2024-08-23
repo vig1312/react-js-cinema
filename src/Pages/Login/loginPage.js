@@ -15,22 +15,18 @@ const LoginPage = () => {
 
   function loginHandle(e) {
     e.preventDefault();
-    try {
-      const currentUser = users.find((el) => el.username === userName.current.value);
+    const currentUser = users.find((el) => el.username === userName.current.value);
 
-      if (currentUser) {
-        localStorage.setItem('loggedUser', JSON.stringify(currentUser));
-        dispatch(changeAuth({ auth: true }));
-        messageRef.current.innerText = 'logged in succesfully';
+    if (currentUser) {
+      localStorage.setItem('loggedUser', JSON.stringify(currentUser));
+      dispatch(changeAuth({ auth: true }));
+      messageRef.current.innerText = 'logged in succesfully';
 
-        setTimeout(() => {
-          navigate('/profile');
-        }, 1000);
-      } else {
-        throw Error('incorrect password or username');
-      }
-    } catch (error) {
-      messageRef.current.innerText = error;
+      setTimeout(() => {
+        navigate('/profile');
+      }, 1000);
+    } else {
+      messageRef.current.innerText = 'incorrect password or username';
     }
   }
 
