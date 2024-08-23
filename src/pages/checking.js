@@ -1,11 +1,13 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { authSelector } from '../store/selectors/userInformation';
+
+import profileSlice from '../store/actions/profileSlice';
+import { userSelector } from '../store/selectors/userInformation';
 
 const Checking = ({ children }) => {
-  const auth = useSelector(authSelector);
+  const user = useSelector(userSelector);
 
-  if (!auth) {
+  if (!user.isLoggedIn) {
     return <Navigate to="/login" />;
   }
 

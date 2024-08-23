@@ -1,32 +1,49 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { changeAuth } from '../../store/actions/authSlice';
+import { currentData } from '../../store/actions/profileSlice';
 
-const users = JSON.parse(localStorage.getItem('registeredUsers'));
 
 const LoginPage = () => {
-  const navigate = useNavigate();
-  const userName = useRef();
-  const password = useRef();
-  const messageRef = useRef();
-
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const userName = useRef();
+  const passWord = useRef();
+  const [succesMessage,setSuccesMessage] = useState('')
+  const [errorMessage,setErrorMessage] = useState("")
 
   function loginHandle(e) {
     e.preventDefault();
-      const currentUser = users.find((el) => el.username === userName.current.value);
+    const users = JSON.parse(localStorage.getItem('registeredUsers'));
+    const currentUser = users.find((el) => el.username === userName.current.value);
 
     if (currentUser) {
       localStorage.setItem('loggedUser', JSON.stringify(currentUser));
-      dispatch(changeAuth({ auth: true }));
-      messageRef.current.innerText = 'logged in succesfully';
+      
+      const {email, fullName, password, username} = currentUser
+      
+      dispatch(
+        currentData({
+          email,
+          fullName,
+          password,
+          username,
+        })
+      );
 
-        setTimeout(() => {
-          navigate('/profile');
-        }, 1000);
-      } else {
-        messageRef.current.innerText = "incorrect password or username";
+      setSuccesMessage("Logged in succesfully")
+      
+      setTimeout(() => {
+        navigate('/');
+      }, 1000);
+
+      } else if(userName.length === 0 || passWord.length === 0) {
+        setErrorMessage("fill the empty lines")
+      }
+      
+      else {
+        setErrorMessage("incorrect password or username")
       }
     }
 
@@ -36,9 +53,10 @@ const LoginPage = () => {
         <h1>login page</h1>
         <form onSubmit={loginHandle}>
           <input type="text" ref={userName} placeholder="username" />
-          <input type="password" ref={password} placeholder="password" />
+          <input type="password" ref={passWord} placeholder="password" />
           <button className="submit-button">Log in </button>
-          <h3 ref={messageRef}></h3>
+          {succesMessage && <h3>{succesMessage}</h3> }
+          {errorMessage && <h3>{errorMessage}</h3>}
         </form>
       </div>
     </section>

@@ -7,7 +7,6 @@ import LoginPage from './Pages/Login/loginPage';
 import TopFilms from './Pages/TopFilms/topFilms';
 import MoviesComp from './Pages/moviePage/movie';
 import CurrFilm from './Pages/moviePage/currentFilm';
-import { currentData } from './store/actions/profileSlice';
 
 import '../src/Assets/style/App.css';
 import Checking from './Pages/checking';

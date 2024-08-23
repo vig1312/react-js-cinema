@@ -5,7 +5,8 @@ const initialState = {
 		username: "",
 		password: "",
 		email: "",
-		fullName: ""
+		fullName: "",
+		isLoggedIn: false
 	}		
 }
 
@@ -19,7 +20,8 @@ const profileSlice = createSlice({
 					username: action.payload.username,
 					password: action.payload.password,
 					email: action.payload.email,
-					fullName: action.payload.fullName
+					fullName: action.payload.fullName,
+					isLoggedIn: true
 				}
 			}
 		},

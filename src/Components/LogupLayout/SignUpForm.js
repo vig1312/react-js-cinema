@@ -1,49 +1,43 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const usernameRegexp = /^[0-9A-Za-z]{6,16}$/;
 const passwordRegexp = /^[A-Za-z]\w{5,14}$/;
 
 const SignUpForm = () => {
+  const navigate = useNavigate()
+
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
-  const [users, setUsers] = useState(
-    localStorage.registeredUsers ? JSON.parse(localStorage.getItem('registeredUsers')) : []
-  );
-  const navigate = useNavigate()
+  const [succesMessage,setSuccesMessage] = useState(false)
+  const [errorMessage,setErrorMessage] = useState(false)
 
-  const errMessageRef = useRef(null);
-
-  localStorage.setItem('registeredUsers', JSON.stringify(users));
-
+  
   function handleSubmit(e) {
     e.preventDefault();
-    try {
+    const users = localStorage.registeredUsers ? JSON.parse(localStorage.getItem("registeredUsers")) : [];
+
       if (usernameRegexp.test(username) && passwordRegexp.test(password)) {
-        setUsers([
-          ...users,
-          {
-            email,
-            username,
-            password,
-            fullName,
-          },
-        ]);
+        users.push({
+          email,
+          username,
+          password,
+          fullName
+        })
         localStorage.setItem('registeredUsers', JSON.stringify(users));
-        errMessageRef.current.innerText = 'Regisered Succesfuly';
+        setSuccesMessage("Signed Up Succesfuly")
 
         setTimeout(() => {
           navigate("/login")
         }, 1500);
+      } else if(username.length === 0 || password.length === 0) {
+        setErrorMessage("fill the empty lines")
       } else {
-        throw new Error('incorrect Registration');
+        setErrorMessage("Wrong username or password")
       }
-    } catch (err) {
-      errMessageRef.current.innerText = err;
     }
-  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -77,7 +71,8 @@ const SignUpForm = () => {
         onChange={(e) => setEmail(e.target.value)}
       />
       <button className="submit-button">Submit</button>
-      <h3 ref={errMessageRef} className="err-message"></h3>
+      {succesMessage && <h3>{succesMessage}</h3>}
+      {errorMessage && <h3>{errorMessage}</h3>}
     </form>
   );
 };

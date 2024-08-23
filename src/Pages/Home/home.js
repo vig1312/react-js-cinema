@@ -1,32 +1,22 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import Footer from '../../Components/HomeLayout/footer';
 import Navigation from '../../Components/HomeLayout/navigationTool';
-import { useSelector } from 'react-redux';
 import NavigationLogged from '../../Components/HomeLayout/navigationLogged';
-import { authSelector } from '../../store/selectors/userInformation';
+import { userSelector } from '../../store/selectors/userInformation';
 
 const Home = () => {
-  const auth = useSelector(authSelector);
+  const user = useSelector(userSelector);
 
-  if (auth.isAuth) {
-    return (
-      <>
-        <NavigationLogged />  
-        <Outlet />
-        <Footer />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Navigation />
-        <Outlet />
-        <Footer />
-      </>
-    );
-  }
+  return (
+    <>
+      {user.isLoggedIn ? <NavigationLogged /> : <Navigation />}
+      <Outlet />
+      <Footer />
+    </>
+  );
 };
 
 export default Home;
