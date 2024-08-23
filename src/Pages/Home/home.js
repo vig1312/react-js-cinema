@@ -5,9 +5,10 @@ import Footer from '../../Components/HomeLayout/footer';
 import Navigation from '../../Components/HomeLayout/navigationTool';
 import { useSelector } from 'react-redux';
 import NavigationLogged from '../../Components/HomeLayout/navigationLogged';
+import { authSelector } from '../../store/selectors/userInformation';
 
 const Home = () => {
-  const auth = useSelector((state) => state.auth.auth);
+  const auth = useSelector(authSelector);
 
   if (auth.isAuth) {
     return (

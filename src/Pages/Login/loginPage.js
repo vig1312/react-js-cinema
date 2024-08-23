@@ -15,7 +15,6 @@ const LoginPage = () => {
 
   function loginHandle(e) {
     e.preventDefault();
-    try {
       const currentUser = users.find((el) => el.username === userName.current.value);
 
       if (currentUser) {
@@ -27,12 +26,9 @@ const LoginPage = () => {
           navigate('/profile');
         }, 1000);
       } else {
-        throw Error('incorrect password or username');
+        messageRef.current.innerText = "incorrect password or username";
       }
-    } catch (error) {
-      messageRef.current.innerText = error;
     }
-  }
 
   return (
     <section>

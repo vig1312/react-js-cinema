@@ -4,9 +4,10 @@ import { tableData } from '../Data/constants';
 import { currentData, resetCurrentData } from '../store/actions/profileSlice';
 import { changeAuth } from '../store/actions/authSlice';
 import { useNavigate } from 'react-router-dom';
+import { userSelector } from '../store/selectors/userInformation';
 
 const Profile = () => {
-  const userInfo = useSelector((state) => state.profile.loggedUser);
+  const userInfo = useSelector(userSelector);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
