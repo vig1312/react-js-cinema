@@ -15,20 +15,20 @@ const LoginPage = () => {
 
   function loginHandle(e) {
     e.preventDefault();
-    const currentUser = users.find((el) => el.username === userName.current.value);
+      const currentUser = users.find((el) => el.username === userName.current.value);
 
     if (currentUser) {
       localStorage.setItem('loggedUser', JSON.stringify(currentUser));
       dispatch(changeAuth({ auth: true }));
       messageRef.current.innerText = 'logged in succesfully';
 
-      setTimeout(() => {
-        navigate('/profile');
-      }, 1000);
-    } else {
-      messageRef.current.innerText = 'incorrect password or username';
+        setTimeout(() => {
+          navigate('/profile');
+        }, 1000);
+      } else {
+        messageRef.current.innerText = "incorrect password or username";
+      }
     }
-  }
 
   return (
     <section>
