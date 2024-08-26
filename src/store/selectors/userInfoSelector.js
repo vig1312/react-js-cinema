@@ -1,7 +1,4 @@
+const userSelector = (state) => state.profile.loggedUser;
+// const authSelector = (state) => state.auth.auth.isAut;
 
-const selectors = {
-  userSelector: (state) => state.profile.loggedUser,
-  authSelector: (state) => state.auth.auth.isAuth
-};
-
-export const { userSelector, authSelector } = selectors;
+export { userSelector };

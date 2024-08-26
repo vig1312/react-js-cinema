@@ -1,46 +1,44 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const usernameRegexp = /^[0-9A-Za-z]{6,16}$/;
 const passwordRegexp = /^[A-Za-z]\w{5,14}$/;
 
 const SignUpForm = () => {
+  
+  const navigate = useNavigate();
+  
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
-  const [users, setUsers] = useState(
-    localStorage.registeredUsers ? JSON.parse(localStorage.getItem('registeredUsers')) : []
-  );
-  const navigate = useNavigate()
-  const errMessageRef = useRef(null);
+  const [successMessage, setSuccessMessage] = useState("");
 
-  localStorage.setItem('registeredUsers', JSON.stringify(users));
+  
 
   function handleSubmit(e) {
+    const users = localStorage.registeredUsers
+      ? JSON.parse(localStorage.getItem('registeredUsers'))
+      : [];
     e.preventDefault();
-    try {
+   
       if (usernameRegexp.test(username) && passwordRegexp.test(password)) {
-        setUsers([
-          ...users,
-          {
-            email,
-            username,
-            password,
-            fullName
-          }
-        ]);
+        users.push({
+          email,
+          username,
+          password,
+          fullName
+        });
         localStorage.setItem('registeredUsers', JSON.stringify(users));
-        errMessageRef.current.innerText = 'Regisered Succesfuly';
+        setSuccessMessage("registered is done")
         setTimeout(() => {
-          navigate("/login")
+          navigate('/login');
         }, 1500);
+      } else if (username.length === 0 || password.length === 0) {
+        setSuccessMessage("please fill the empty fields");
       } else {
-        throw new Error('incorrect Registration');
+        setSuccessMessage("incorrect password or username");
       }
-    } catch (err) {
-      errMessageRef.current.innerText = err;
-    }
   }
 
   return (
@@ -48,7 +46,6 @@ const SignUpForm = () => {
       <input
         type="text"
         value={username}
-        required={true}
         placeholder="Username..."
         onChange={(e) => {
           setUsername(e.target.value);
@@ -57,14 +54,12 @@ const SignUpForm = () => {
       <input
         type="password"
         value={password}
-        required={true}
         placeholder="Password..."
         onChange={(e) => setPassword(e.target.value)}
       />
       <input
         type="text"
         value={fullName}
-        required={true}
         placeholder="Full Name..."
         onChange={(e) => setFullName(e.target.value)}
       />
@@ -75,7 +70,7 @@ const SignUpForm = () => {
         onChange={(e) => setEmail(e.target.value)}
       />
       <button className="submit-button">Submit</button>
-      <h3 ref={errMessageRef} className="err-message"></h3>
+      <h3 className="err-message">{successMessage}</h3>
     </form>
   );
 };

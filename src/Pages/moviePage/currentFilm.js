@@ -1,11 +1,16 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
+import TicketsBar from './tickets';
+import { useSelector } from 'react-redux';
 import { data } from '../../Data/constants';
+import { userSelector } from '../../store/selectors/userInfoSelector';
+
 
 const CurrFilm = () => {
   const { id } = useParams();
   const currentfillm = data.find((item) => item.id === Number(id));
   const currentFilmKeys = Object.entries(currentfillm)
+  const auth = useSelector(userSelector)
   const table = 
   <table className="table">
     {currentFilmKeys.slice(3).map((item, index) => {
@@ -25,6 +30,9 @@ const CurrFilm = () => {
         {table}
       </div>
       <iframe width="560" height="315" src={currentfillm.trailer}></iframe>
+      {
+        auth.isLogged ? <TicketsBar/> : <Link to={"/login"}>do you want to buy  a tickets</Link>
+      }
     </section>
   );
 };

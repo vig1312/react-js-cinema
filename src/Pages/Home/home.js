@@ -4,29 +4,20 @@ import { useSelector } from 'react-redux';
 
 import Footer from '../../Components/HomeLayout/footer';
 import Navigation from '../../Components/HomeLayout/navigationTool';
-import { authSelector } from '../../store/selectors/userInfoSelector';
+import { userSelector } from '../../store/selectors/userInfoSelector';
 import NavigationLogged from '../../Components/HomeLayout/navigationLogged';
 
-const Home = () => {
-  const auth = useSelector(authSelector);
 
-  if (auth) {
-    return (
-      <>
-        <NavigationLogged />  
-        <Outlet />
-        <Footer />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Navigation />
-        <Outlet />
-        <Footer />
-      </>
-    );
-  }
+const Home = () => {
+  const user = useSelector(userSelector);
+
+  return (
+    <>
+      {user.isLogged ? <NavigationLogged /> : <Navigation />}
+      <Outlet />
+      <Footer />
+    </>
+  );
 };
 
 export default Home;
