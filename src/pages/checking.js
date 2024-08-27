@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-import profileSlice from '../store/actions/profileSlice';
 import { userSelector } from '../store/selectors/userInformation';
 
 const Checking = ({ children }) => {

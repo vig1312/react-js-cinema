@@ -135,3 +135,74 @@ footer {
     margin-top: 10px;
     cursor: pointer;
   }
+
+  .tickets-container {
+        width: 50%;
+        margin: auto;
+        margin-top: 40px;
+        margin-bottom: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2px;
+        padding: 20px 0;
+  }
+
+  .active {
+    background-color: red;
+  }
+  .tickets-container > button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: rgb(148, 230, 148);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .selected-tickets {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid black;
+    flex-direction: column;
+  }
+
+  .boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 1px;
+  }
+
+  .selected-tickets > button {
+    width: 30%;
+  }
+
+  .boxes > h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(77, 201, 77);
+
+  }
+  .tickets-link-login {
+    color: white;
+    text-decoration: none;
+    padding: 5px 40px;
+    background-color: rgb(87, 87, 218);
+    border-radius: 10px;
+    margin-top: 20px;
+  }
