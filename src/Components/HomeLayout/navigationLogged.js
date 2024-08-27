@@ -1,12 +1,12 @@
 import { NavLink } from 'react-router-dom';
 
-import { navData } from '../../Data/constants';
+import { navDataLogged } from '../../Data/constants';
 
-function Navigation() {
+function NavigationLogged() {
   return (
     <nav>
       <ul>
-        {navData.map(({ path, title }, index) => (
+        {navDataLogged.map(({ path, title }, index) => (
           <NavLink to={path} key={index} className="nav-links">
             {title}
           </NavLink>
@@ -16,4 +16,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default NavigationLogged;

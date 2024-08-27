@@ -1,12 +1,15 @@
+import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-const Checking = ({children}) => {
-    const auth = true;
+import { userSelector } from '../store/selectors/userInformation';
 
-    if (!auth) {
-        return <Navigate to='/login'/>
-    }
+const Checking = ({ children }) => {
+  const user = useSelector(userSelector);
 
-    return children;
-}
+  if (!user.isLoggedIn) {
+    return <Navigate to="/login" />;
+  }
+
+  return children;
+};
 export default Checking;
