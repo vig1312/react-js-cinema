@@ -1,16 +1,28 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { tableData } from '../Data/constants';
-import { userSelector } from '../store/selectors/userInfoSelector';
 import { resetCurrentData } from '../store/actions/profileSlice';
+import { ticketsSelector, userSelector } from '../store/selectors/userInfoSelector';
 
 const Profile = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+
   const navigate = useNavigate();
   
   const userInfo = useSelector(userSelector);
+  const tickets = useSelector(ticketsSelector);
+  
+  const purchased = Object.entries(tickets).filter((item) => item[1].length !== 0);
+  console.log(purchased);
+  const currentTickets = purchased.map((item, index) => {
+    return (
+    <div key={index}>
+      <h3>{item.join("-")}</h3>
+    </div>
+    )
+  }) 
  
   function handleLogOut() {
     localStorage.removeItem('loggedUser');
@@ -34,6 +46,7 @@ const Profile = () => {
           </div>
         ))}
       </table>
+        {currentTickets}
       <button onClick={handleLogOut} className="submit-button">
         Log Out
       </button>

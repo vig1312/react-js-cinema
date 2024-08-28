@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import React, { useRef, useState } from 'react';
 
 import { currentData } from '../../store/actions/profileSlice';
 

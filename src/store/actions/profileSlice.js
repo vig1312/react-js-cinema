@@ -6,7 +6,8 @@ const initialState = {
     password: '',
     email: '',
     fullName: '',
-    isLogged: false
+    isLogged: false,
+    reservedTickets: ""
   }
 };
 
@@ -27,9 +28,17 @@ const profileSlice = createSlice({
     },
     resetCurrentData(state, action) {
       return initialState;
+    },
+    ticketsData(state, action){
+      return {
+        loggedUser: {
+          ...state.loggedUser,
+          reservedTickets: action.payload.tickets
+        }
+      }
     }
   }
 });
 
-export const { currentData, resetCurrentData } = profileSlice.actions;
+export const { currentData, resetCurrentData, ticketsData } = profileSlice.actions;
 export default profileSlice.reducer;
