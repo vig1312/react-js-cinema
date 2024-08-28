@@ -137,7 +137,7 @@ footer {
   }
 
   .tickets-container {
-        width: 50%;
+        width: 30%;
         margin: auto;
         margin-top: 40px;
         margin-bottom: 90px;
@@ -161,17 +161,6 @@ footer {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-  }
-
-  .selected-tickets {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    padding: 20px;
-    border: 1px solid black;
-    flex-direction: column;
   }
 
   .boxes {
