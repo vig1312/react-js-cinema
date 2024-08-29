@@ -1,15 +1,33 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { tableData } from '../Data/constants';
-import  {  resetCurrentData } from '../store/actions/profileSlice';
 import { useNavigate } from 'react-router-dom';
-import { userSelector } from '../store/selectors/userInformation';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { tableData } from '../Data/constants';
+import { resetCurrentData } from '../store/actions/profileSlice';
+import { ticketsSelector, userSelector } from '../store/selectors/userInfoSelector';
 
 const Profile = () => {
   const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const userInfo = useSelector(userSelector);
+
+  let tickets = {};
+
+  if (localStorage.reservedTickets) {
+    const baseTickets = JSON.parse(localStorage.getItem('reservedTickets'));
+    tickets = baseTickets[userInfo.username];
+  }
+
+  const purchased = Object.entries(tickets).filter((item) => item[1].length !== 0);
+  const currentTickets = purchased.map((item, index) => {
+    return (
+      <div key={index}>
+        <h3>{item.join('-')}</h3>
+      </div>
+    );
+  });
 
   function handleLogOut() {
     localStorage.removeItem('loggedUser');
@@ -22,8 +40,8 @@ const Profile = () => {
     <section>
       <h1>personal info</h1>
       <table>
-        {tableData.map(({ title, key },index) => (
-          <div key={index}>
+        {tableData.map(({ title, key }) => (
+          <div key={key}>
             <tr>
               <th>{title}</th>
             </tr>
@@ -33,6 +51,7 @@ const Profile = () => {
           </div>
         ))}
       </table>
+      {currentTickets}
       <button onClick={handleLogOut} className="submit-button">
         Log Out
       </button>

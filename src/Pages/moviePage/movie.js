@@ -4,6 +4,6 @@ import DraftMovie from '../../Components/MovieLayout/draftMovie';
 
 import '../../Assets/style/movies.css';
 
-const MoviesComp = () => <DraftMovie />;
+const MoviesComp = () => <DraftMovie />
 
 export default MoviesComp;

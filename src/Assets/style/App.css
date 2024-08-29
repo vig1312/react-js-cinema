@@ -147,6 +147,7 @@ footer {
         flex-wrap: wrap;
         gap: 2px;
         padding: 20px 0;
+    
   }
 
   .active {
@@ -161,6 +162,7 @@ footer {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    margin-bottom: 20px;
   }
 
   .boxes {

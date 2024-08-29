@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 
-import { datas } from '../../Data/constants';
+import { datas } from '../constants';
 import Tickets from '../../Components/MovieLayout/tickets';
 import { userSelector } from '../../store/selectors/userInfoSelector';
 

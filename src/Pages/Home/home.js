@@ -4,34 +4,35 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Footer from '../../Components/HomeLayout/footer';
 import Navigation from '../../Components/HomeLayout/navigationTool';
+import { userSelector } from '../../store/selectors/userInfoSelector';
 import NavigationLogged from '../../Components/HomeLayout/navigationLogged';
-import { userSelector } from '../../store/selectors/userInformation';
-import { currentData } from '../../store/actions/profileSlice';
+import { currentData, ticketsData } from '../../store/actions/profileSlice';
 
 const Home = () => {
+  const dispatch = useDispatch();
+
   const user = useSelector(userSelector);
-  const dispatch = useDispatch()
 
   useEffect(() => {
-    if(localStorage.loggedUser && user.username === "") {
-      const currentUser = JSON.parse(localStorage.getItem('loggedUser'))
-      
-      const {email, fullName, password, username} = currentUser
-      
+
+    if (localStorage.loggedUser && user.username === '') {
+      const currentUser = JSON.parse(localStorage.getItem('loggedUser'));
+      const { email, fullName, password, username } = currentUser;
+
       dispatch(
         currentData({
           email,
           fullName,
           password,
-          username,
+          username
         })
       );
     }
-  },[])
+  }, []);
 
   return (
     <>
-      {user.isLoggedIn ? <NavigationLogged /> : <Navigation />}
+      {user.isLogged ? <NavigationLogged /> : <Navigation />}
       <Outlet />
       <Footer />
     </>

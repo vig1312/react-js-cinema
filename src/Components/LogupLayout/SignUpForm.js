@@ -26,11 +26,12 @@ const SignUpForm = () => {
           password,
           fullName
         })
+        
         localStorage.setItem('registeredUsers', JSON.stringify(users));
         setSuccesMessage("Signed Up Succesfuly")
 
         setTimeout(() => {
-          navigate("/login")
+          navigate('/login');
         }, 1500);
       } else if(username.length === 0 || password.length === 0) {
         setErrorMessage("fill the empty lines")
@@ -43,7 +44,6 @@ const SignUpForm = () => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        required={true}
         value={username}
         placeholder="Username..."
         onChange={(e) => {
@@ -52,14 +52,12 @@ const SignUpForm = () => {
       />
       <input
         type="password"
-        required={true}
         value={password}
         placeholder="Password..."
         onChange={(e) => setPassword(e.target.value)}
       />
       <input
         type="text"
-        required={true}
         value={fullName}
         placeholder="Full Name..."
         onChange={(e) => setFullName(e.target.value)}

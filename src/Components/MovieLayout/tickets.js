@@ -1,9 +1,22 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { datas } from '../../Data/constants';
-import { userSelector } from '../../store/selectors/userInformation';
+import { userSelector } from '../../store/selectors/userInfoSelector';
+import { ticketsData } from '../../store/actions/profileSlice';
+import { useEffect } from 'react';
 
 const Tickets = (filmName) => {
   const user = useSelector(userSelector);
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    allReservedInitalState[filmName.currMovie].map(item => {
+      if(initialState[username][filmName.currMovie].includes(item)) {
+        document.getElementById(`${item - 1}`).style.backgroundColor = "red"
+      } else {
+        document.getElementById(`${item - 1}`).style.backgroundColor = "grey"
+      }
+    })
+  },[])
 
   const username = user.username;
   const { currMovie } = filmName;
@@ -59,8 +72,15 @@ const Tickets = (filmName) => {
 
       e.target.style.backgroundColor = 'red';
 
+      dispatch(
+        ticketsData({
+          tickets: initialState[username]
+        })
+      );
+
       localStorage.setItem('reservedTickets', JSON.stringify(initialState));
       localStorage.setItem('allReservedTickets', JSON.stringify(allReservedInitalState));
+
     } else if (!approve) {
       alert('Canceled');
     } else {
@@ -68,11 +88,36 @@ const Tickets = (filmName) => {
     }
   }
 
+
+
   return (
     <div className="tickets-container">
       {Array.from({ length: 50 }).map((item, index) => (
-        <button onClick={(e) => handleTicketsBuying(e, index + 1)}>{index + 1}</button>
+        <button
+         id={index}
+         onClick={(e) => handleTicketsBuying(e, index + 1)}
+         >{index + 1}</button>
       ))}
+      <div className='your-tickets'>
+        <div className='your-span'>
+
+        </div>
+         - My bought tickets
+      </div>
+
+      <div className='others-tickets'>
+        <div className='others-span'>
+
+        </div>
+         - Others bought tickets
+      </div>
+
+      <div className='available-tickets'>
+        <div className='available-span'>
+
+        </div>
+         - Available tickets
+      </div>
     </div>
   );
 };

@@ -40,9 +40,7 @@ const LoginPage = () => {
 
       } else if(userName.length === 0 || passWord.length === 0) {
         setErrorMessage("fill the empty lines")
-      }
-      
-      else {
+      } else {
         setErrorMessage("incorrect password or username")
       }
     }
