@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Poppins;
 }
@@ -7,6 +13,7 @@ nav {
     justify-content: center;
     align-items: center;
     background-color: cadetblue;
+    padding: 20px;
 }
 
 nav > ul {
@@ -79,3 +86,114 @@ footer {
 .top-heading {
     font-size: 50px;
 }
+
+.auth-form-fields-container {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px 50px 30px 50px;
+    background-color: cadetblue;
+}
+
+.auth-form-fields-container > form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .auth-form-fields-container > h1 {
+    padding: 10px;
+    margin: 10px;
+  }
+   
+  .auth-form-fields-container > form > input {
+    width: 100%;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(216, 216, 216);
+    outline: none;
+  }
+  
+  .auth-form-fields-container > form > select {
+    width: 100%;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(216, 216, 216);
+    outline: none;
+  }
+
+  .submit-button {
+    padding: 7px 50px;
+    background-color: rgba(0, 53, 199, 0.712);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  .tickets-container {
+        width: 30%;
+        margin: auto;
+        margin-top: 40px;
+        margin-bottom: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2px;
+        padding: 20px 0;
+    
+  }
+
+  .active {
+    background-color: red;
+  }
+  .tickets-container > button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: rgb(148, 230, 148);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  .boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 1px;
+  }
+
+  .selected-tickets > button {
+    width: 30%;
+  }
+
+  .boxes > h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(77, 201, 77);
+
+  }
+  .tickets-link-login {
+    color: white;
+    text-decoration: none;
+    padding: 5px 40px;
+    background-color: rgb(87, 87, 218);
+    border-radius: 10px;
+    margin-top: 20px;
+  }
