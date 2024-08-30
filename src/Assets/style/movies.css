@@ -24,3 +24,28 @@ iframe {
     width: 330px;
     height: 100%;
 }
+
+.your-span {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+}
+
+.others-span {
+    width: 20px;
+    height: 20px;
+    background-color: grey;
+}
+
+.available-span {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(148, 230, 148);
+}
+
+.your-tickets, .others-tickets, .available-tickets {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

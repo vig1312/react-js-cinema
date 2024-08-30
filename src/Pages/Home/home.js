@@ -18,7 +18,7 @@ const Home = () => {
     if (localStorage.loggedUser && user.username === '') {
       const currentUser = JSON.parse(localStorage.getItem('loggedUser'));
       const { email, fullName, password, username } = currentUser;
-      const tickets = JSON.parse(localStorage.getItem('reservedTickets'));
+      // const tickets = JSON.parse(localStorage.getItem('reservedTickets'));
 
       dispatch(
         currentData({
@@ -28,11 +28,8 @@ const Home = () => {
           username
         })
       );
-      dispatch(
-        ticketsData({
-          tickets: tickets[username]
-        })
-      );
+
+    
     }
   }, []);
   return (

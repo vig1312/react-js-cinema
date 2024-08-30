@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { tableData } from '../Data/constants';
-import { resetCurrentData } from '../store/actions/profileSlice';
-import { ticketsSelector, userSelector } from '../store/selectors/userInfoSelector';
+import { resetCurrentData, ticketsData } from '../store/actions/profileSlice';
+import { userSelector } from '../store/selectors/userInfoSelector';
 
 const Profile = () => {
   const dispatch = useDispatch()
-
+  const userInfo = useSelector(userSelector);
+  let tickets = {}; 
+ 
+  if (localStorage.reservedTickets) { 
+    const baseTickets = JSON.parse(localStorage.getItem('reservedTickets')); 
+    tickets = baseTickets[userInfo.username]; 
+  }
   const navigate = useNavigate();
   
-  const userInfo = useSelector(userSelector);
-  const tickets = useSelector(ticketsSelector);
-  
   const purchased = Object.entries(tickets).filter((item) => item[1].length !== 0);
-  console.log(purchased);
   const currentTickets = purchased.map((item, index) => {
     return (
     <div key={index}>
