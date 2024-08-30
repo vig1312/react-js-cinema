@@ -1,7 +1,7 @@
 import React from 'react';
 
-import FilmLists from "../../Components/topFilmsLayout/filmLists";
+import FilmLists from '../../Components/topFilmsLayout/filmLists';
 
-const TopFilms = () => <FilmLists />
+const TopFilms = () => <FilmLists />;
 
 export default TopFilms;
